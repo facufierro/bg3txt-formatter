@@ -1,0 +1,48 @@
+{
+  "name": "bg3txt-formatter",
+  "version": "0.0.1",
+  "publisher": "fierrof",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/yourrepository.git"
+  },
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "activationEvents": [
+    "onLanguage:txt"
+  ],
+  "main": "./extension.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "bg3txt",
+        "extensions": [
+          ".bg3txt"
+        ],
+        "aliases": [
+          "BG3TXT",
+          "bg3txt"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "bg3txt",
+        "path": "./bg3txt.tmLanguage.json"
+      }
+    ],
+    "documentFormattingEditProvider": [
+      {
+        "language": "bg3txt"
+      }
+    ]
+  }
+}
