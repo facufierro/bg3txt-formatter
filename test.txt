@@ -1,0 +1,84 @@
+
+
+new entry "TacticalWit_0"
+	type "PassiveData"
+		data "DisplayName" "hb804eee9g84bcg4a52g91e5g895fbc849097;2"
+		data "Description" "hda8873a7gc134g44e1g9bc8ge92788642a3e;5"
+		data "DescriptionParams" "5"
+		data "Icon" "GenericIcon_Intent_Utility"
+		data "Properties" "Highlighted"
+		data "Boosts" "Initiative(3)"
+
+
+new entry "TacticalWit_1"
+    type "PassiveData"
+        data "DisplayName" "hb804eee9g84bcg4a52g91e5g895fbc849097;2"
+        data "Description" "h4fbc6150g46a4g459cgadbfg63951030d14f;5"
+        data "DescriptionParams" "5"
+        data "Icon" "GenericIcon_Intent_Utility"
+        data "Properties" "Highlighted"
+        data "Boosts" "Initiative(4)"
+
+new entry "TacticalWit_2"
+	type "PassiveData"
+		data "DisplayName" "hb804eee9g84bcg4a52g91e5g895fbc849097;2"
+		data "Description" "h54d17d65g447bg47f0gb3e5gdd0fedd8975d;5"
+		data "DescriptionParams" "5"
+		data "Icon" "GenericIcon_Intent_Utility"
+		data "Properties" "Highlighted"
+		data "Boosts" "Initiative(5)"
+//--
+//-- Arcane Deflection
+new entry "Passive_ArcaneDeflection"
+	type "PassiveData"
+		data "DisplayName" "h70f3c495g6fe4g45eeg87a6g4a114c06c7cc;1"
+		data "Description" "h0a77fd5dg4e9eg4006ga5eeg33b6dd2248db;1"
+		data "Boosts" "UnlockSpell(Shout_ArcaneDeflection)"
+		data "Icon" "PassiveFeature_Shield"
+		data "Properties" "Highlighted"
+//--
+//-- Power Surge
+
+new entry "Passive_PowerSurgeInitialize"
+	type "PassiveData"
+		data "DisplayName" "h5c6d9416gabc2g4441gabaegf4e8e0a273d1;3"
+		data "Description" "h387098a3g551bg48ddgb7ebg6614bff3ec7c;5"
+		data "Icon" "PassiveFeature_ArcaneWard"
+		data "Properties" "Highlighted"
+		data "StatsFunctorContext" "OnShortRest;OnLongRest;OnCreate"
+		data "Conditions" "not HasStatus('BOOST_PowerSurge', context.Source)"
+		data "StatsFunctors" "ApplyStatus(SELF,BOOST_PowerSurge,100,1)"
+
+new entry "Passive_PowerSurgeAdd"
+	type "PassiveData"
+		data "Properties" "IsHidden"
+		data "StatsFunctorContext" "OnCast;OnInterruptUsed"
+		data "Conditions" "SpellId('Interrupt_CounterSpell') or SpellId('Shout_BladeWard')"
+		data "StatsFunctors" "IF(ArcaneWardOverflow(true)):ApplyStatus(SELF,BOOST_PowerSurge,100,2*1);IF(not ArcaneWardOverflow(true)):ApplyStatus(SELF,BOOST_PowerSurge,100,BOOST_PowerSurge.Duration+1)"
+
+new entry "Passive_PowerSurgeToggle"
+	type "PassiveData"
+		data "DisplayName" "h5c6d9416gabc2g4441gabaegf4e8e0a273d1;1"
+		data "Description" "18fh387098a3g551bg48ddgb7ebg6614bff3ec7c;1"
+		data "Icon" "PassiveFeature_FightingStyle_Defense"
+		data "EnabledConditions" "HasStatus('BOOST_PowerSurge', context.Source)"
+		data "EnabledContext" "OnCastResolved;OnStatusApplied;OnStatusRemoved"
+		data "Properties" "IsToggled;ToggledDefaultAddToHotbar;MetaMagic"
+		data "StatsFunctorContext" "OnDamage"
+		data "Conditions" "StatusGroupDurationEqualOrMoreThan(context.Source,'BOOST_PowerSurge',1))"
+		data "StatsFunctors" "ApplyStatus(SELF,BOOST_PowerSurge,100,BOOST_PowerSurge.Duration-1);DealDamage(ClassLevel(Wizard)/2,Force)"
+		data "ToggleOnEffect" "VFX_Spells_Cast_Sorcerer_Metamagic_Empowered_HeadFX_01:Dummy_HeadFX"
+
+//--
+//-- Durable Magic
+new entry "Passive_DurableMagic"
+	type "PassiveData"
+		data "DisplayName" "h73931904g0389g4e4cg8c7cg81e510b99ed5;1"
+		data "Description" "hce53ef15g4bdag459agb0dcg3cb053fd37a5;2"
+		data "Icon" "PassiveFeature_FightingStyle_Defense"
+		data "Properties" "Highlighted"
+		data "StatsFunctorContext" "OnCast"
+		data "StatsFunctors" "ApplyStatus(BOOST_DurableMagic, 100, 1)"
+//--
+
+//--

@@ -1,6 +1,6 @@
 {
   "name": "bg3txt-formatter",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "publisher": "fierrof",
   "repository": {
     "type": "git",
@@ -13,18 +13,15 @@
     "Formatters"
   ],
   "activationEvents": [
-    "onLanguage:txt"
+    "onLanguage:bg3txt"
   ],
   "main": "./extension.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "contributes": {
     "languages": [
       {
         "id": "bg3txt",
         "extensions": [
-          ".bg3txt"
+          ".txt"
         ],
         "aliases": [
           "BG3TXT",
