@@ -6,9 +6,6 @@
       "include": "#keywords"
     },
     {
-      "include": "#strings"
-    },
-    {
       "include": "#block-comments"
     }
   ],
@@ -17,18 +14,7 @@
       "patterns": [
         {
           "name": "keyword.control.bg3txt",
-          "match": "^(\\s)*(new entry|data|type)\\b"
-        }
-      ]
-    },
-    "strings": {
-      "name": "string.quoted.double.bg3txt",
-      "begin": "\"",
-      "end": "\"",
-      "patterns": [
-        {
-          "name": "constant.character.escape.bg3txt",
-          "match": "\\\\."
+          "match": "\\b(new entry|data|type|IF)\\b"
         }
       ]
     },
