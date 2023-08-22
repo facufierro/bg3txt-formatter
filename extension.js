@@ -1,44 +1,39 @@
 const vscode = require('vscode');
 
-function formatNewEntryLine(line) {
-    return line.text.trimStart();
-}
-
-function formatTypeLine(line) {
-    return '\t' + line.text.trimStart();
-}
-
-function formatDataLine(line) {
-    return '\t\t' + line.text.trimStart();
-}
-
 function activate(context) {
-    context.subscriptions.push(
-        vscode.languages.registerDocumentFormattingEditProvider('bg3txt', {
-            provideDocumentFormattingEdits(document) {
-                const edits = [];
+    context.subscriptions.push(vscode.languages.registerDocumentFormattingEditProvider('bg3txt', {
+        provideDocumentFormattingEdits(document) {
+            const edits = [];
+            let lastLineWasParagraph = false;
 
-                for (let i = 0; i < document.lineCount; i++) {
-                    const line = document.lineAt(i);
-                    let newText = "";
-
-                    if (line.text.startsWith('new entry')) {
-                        newText = formatNewEntryLine(line);
-                    } else if (line.text.startsWith('type')) {
-                        newText = formatTypeLine(line);
-                    } else if (line.text.startsWith('data')) {
-                        newText = formatDataLine(line);
+            for (let i = 0; i < document.lineCount; i++) {
+                const line = document.lineAt(i);
+                const lineText = line.text.trimStart();
+                
+                if (lineText.startsWith('new entry')) {
+                    edits.push(vscode.TextEdit.replace(line.range, lineText));
+                } else if (lineText.startsWith('type')) {
+                    edits.push(vscode.TextEdit.replace(line.range, '\t' + lineText));
+                } else if (lineText.startsWith('data')) {
+                    edits.push(vscode.TextEdit.replace(line.range, '\t\t' + lineText));
+                } else if (lineText.startsWith('//')) {
+                    // Handle comments
+                } else {
+                    // Assume it's a paragraph
+                    if (lastLineWasParagraph) {
+                        // Add a line break if the last line was also a paragraph
+                        edits.push(vscode.TextEdit.insert(line.range.start, '\n'));
                     }
-
-                    if (newText) {
-                        edits.push(vscode.TextEdit.replace(line.range, newText));
-                    }
+                    lastLineWasParagraph = true;
+                    continue;
                 }
-
-                return edits;
+                
+                lastLineWasParagraph = false;
             }
-        })
-    );
+
+            return edits;
+        }
+    }));
 }
 
 exports.activate = activate;

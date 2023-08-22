@@ -1,5 +1,5 @@
 
-
+// Tactical Wit
 new entry "TacticalWit_0"
 	type "PassiveData"
 		data "DisplayName" "hb804eee9g84bcg4a52g91e5g895fbc849097;2"
@@ -9,15 +9,14 @@ new entry "TacticalWit_0"
 		data "Properties" "Highlighted"
 		data "Boosts" "Initiative(3)"
 
-
 new entry "TacticalWit_1"
-    type "PassiveData"
-        data "DisplayName" "hb804eee9g84bcg4a52g91e5g895fbc849097;2"
-        data "Description" "h4fbc6150g46a4g459cgadbfg63951030d14f;5"
-        data "DescriptionParams" "5"
-        data "Icon" "GenericIcon_Intent_Utility"
-        data "Properties" "Highlighted"
-        data "Boosts" "Initiative(4)"
+	type "PassiveData"
+		data "DisplayName" "hb804eee9g84bcg4a52g91e5g895fbc849097;2"
+		data "Description" "h4fbc6150g46a4g459cgadbfg63951030d14f;5"
+		data "DescriptionParams" "5"
+		data "Icon" "GenericIcon_Intent_Utility"
+		data "Properties" "Highlighted"
+		data "Boosts" "Initiative(4)"
 
 new entry "TacticalWit_2"
 	type "PassiveData"
@@ -27,8 +26,8 @@ new entry "TacticalWit_2"
 		data "Icon" "GenericIcon_Intent_Utility"
 		data "Properties" "Highlighted"
 		data "Boosts" "Initiative(5)"
-//--
-//-- Arcane Deflection
+
+// Arcane Deflection
 new entry "Passive_ArcaneDeflection"
 	type "PassiveData"
 		data "DisplayName" "h70f3c495g6fe4g45eeg87a6g4a114c06c7cc;1"
@@ -36,8 +35,7 @@ new entry "Passive_ArcaneDeflection"
 		data "Boosts" "UnlockSpell(Shout_ArcaneDeflection)"
 		data "Icon" "PassiveFeature_Shield"
 		data "Properties" "Highlighted"
-//--
-//-- Power Surge
+// Power Surge
 
 new entry "Passive_PowerSurgeInitialize"
 	type "PassiveData"
@@ -69,8 +67,9 @@ new entry "Passive_PowerSurgeToggle"
 		data "StatsFunctors" "ApplyStatus(SELF,BOOST_PowerSurge,100,BOOST_PowerSurge.Duration-1);DealDamage(ClassLevel(Wizard)/2,Force)"
 		data "ToggleOnEffect" "VFX_Spells_Cast_Sorcerer_Metamagic_Empowered_HeadFX_01:Dummy_HeadFX"
 
-//--
-//-- Durable Magic
+
+
+//Durable Magic
 new entry "Passive_DurableMagic"
 	type "PassiveData"
 		data "DisplayName" "h73931904g0389g4e4cg8c7cg81e510b99ed5;1"
@@ -79,6 +78,3 @@ new entry "Passive_DurableMagic"
 		data "Properties" "Highlighted"
 		data "StatsFunctorContext" "OnCast"
 		data "StatsFunctors" "ApplyStatus(BOOST_DurableMagic, 100, 1)"
-//--
-
-//--

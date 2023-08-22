@@ -1,7 +1,10 @@
 {
   "name": "bg3txt-formatter",
-  "version": "1.0.0",
+  "author": "fierrof",
   "publisher": "fierrof",
+  "displayName": "bg3txt-formatter",
+  "description": "Syntax highlighting and format for Baldur's Gate 3 text files",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/facufierro/bg3txt-formatter"
@@ -10,12 +13,9 @@
     "vscode": "^1.60.0"
   },
   "categories": [
-    "Formatters"
+    "Formatters",
+    "Programming Languages"
   ],
-  "activationEvents": [
-    "onLanguage:bg3txt"
-  ],
-  "main": "./extension.js",
   "contributes": {
     "languages": [
       {
@@ -24,7 +24,7 @@
           ".txt"
         ],
         "aliases": [
-          "BG3TXT",
+          "BG3 Text",
           "bg3txt"
         ],
         "configuration": "./language-configuration.json"
@@ -33,7 +33,8 @@
     "grammars": [
       {
         "language": "bg3txt",
-        "path": "./bg3txt.tmLanguage.json"
+        "scopeName": "source.bg3txt",
+        "path": "./syntaxes/bg3txt.tmLanguage.json"
       }
     ],
     "documentFormattingEditProvider": [
@@ -41,5 +42,16 @@
         "language": "bg3txt"
       }
     ]
-  }
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onLanguage:plaintext"
+  ],
+  "__metadata": {
+    "id": "18d9cb6c-f14b-4410-8324-75e7921c7537",
+    "publisherDisplayName": "fierrof",
+    "publisherId": "44de7cf2-4d12-4357-a02c-02a31efdd790",
+    "isPreReleaseVersion": false
+  },
+  "license": "MIT"
 }
