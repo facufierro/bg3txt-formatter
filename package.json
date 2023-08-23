@@ -41,7 +41,17 @@
       {
         "language": "bg3txt"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "BG3TXT Formatter",
+      "properties": {
+        "bg3txt.keywordColor": {
+          "type": "string",
+          "default": "#FF0000",
+          "description": "Color for keywords in bg3txt files"
+        }
+      }
+    }
   },
   "main": "./extension.js",
   "activationEvents": [
