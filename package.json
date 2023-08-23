@@ -53,5 +53,8 @@
     "publisherId": "44de7cf2-4d12-4357-a02c-02a31efdd790",
     "isPreReleaseVersion": false
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.19.2"
+  }
 }
