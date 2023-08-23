@@ -34,25 +34,41 @@ function activate(context) {
             const existingTextMateRules = existingTokenColorCustomizations.textMateRules || [];
             const existingFilesAssociations = config.get('files.associations') || {};
 
-            // Set the default color, unless it's already set
-            if (!existingTextMateRules.some(rule => rule.scope === 'keyword.control.bg3txt')) {
-                existingTextMateRules.push({
+            // Set up additional textMateRules
+            const newRules = [
+                {
                     "scope": "keyword.control.bg3txt",
                     "settings": {
                         "foreground": "#C586C0"
                     }
-                });
-            }
+                },
+                {
+                    "scope": "keyword.operator.bg3txt",
+                    "settings": {
+                        "foreground": "#ffa200"
+                    }
+                },
+                {
+                    "scope": "string.first-column.bg3txt",
+                    "settings": {
+                        "foreground": "#9CDCFE"
+                    }
+                }
+            ];
+
+            newRules.forEach((newRule) => {
+                if (!existingTextMateRules.some(rule => rule.scope === newRule.scope)) {
+                    existingTextMateRules.push(newRule);
+                }
+            });
 
             await config.update('editor.tokenColorCustomizations', {
                 "textMateRules": existingTextMateRules
             }, vscode.ConfigurationTarget.Workspace);
 
-            // Add file association, unless it's already set
-            if (!existingFilesAssociations['*.txt']) {
-                existingFilesAssociations['*.txt'] = "bg3txt";
-                await config.update('files.associations', existingFilesAssociations, vscode.ConfigurationTarget.Workspace);
-            }
+            // Always use bg3txt for txt files
+            existingFilesAssociations['*.txt'] = "bg3txt";
+            await config.update('files.associations', existingFilesAssociations, vscode.ConfigurationTarget.Workspace);
         }
     })();
 }

@@ -11,12 +11,12 @@
       "name": "comment.line.bg3txt"
     },
     {
-      "match": "(\\+|\\-|\\*|\\/|\\%|\\=|\\>|\\<|\\!|\\&|\\||\\^|\\~|\\?|\\'|\\:|\\,|\\;|\\.)",
-      "name": "keyword.operator.bg3txt"
-    },
-    {
       "name": "string.first-column.bg3txt",
       "match": "(?<=\\b(new entry|type|data)\\s)\"[^\"]+\""
+    },
+    {
+      "match": "(\\+|\\-|\\*|\\/|\\%|\\=|\\>|\\<|\\!|\\&|\\||\\^|\\~|\\?|\\'|\\:|\\,|\\;|\\\")",
+      "name": "keyword.operator.bg3txt"
     }
   ],
   "scopeName": "source.bg3txt"
