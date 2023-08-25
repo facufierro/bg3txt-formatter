@@ -22,9 +22,9 @@ function activate(context) {
         }));
 
         // Initialize workspace with color and text heighlights from TextHeighlightService
-    
+        setupWorkspace(TextHeighlightService.rules)
 
-        setupWorkspace(TextHeighlightService.rules);
+
 
 
 
@@ -37,3 +37,6 @@ function activate(context) {
 
 // Export the activate function so VS Code can call it
 exports.activate = activate;
+
+
+

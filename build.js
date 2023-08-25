@@ -8,7 +8,7 @@ TextHeighlightService.initialize();
 
 // Resolve the path where the tmLanguage.json file will be generated
 const outputPath = path.resolve(__dirname, './syntaxes/bg3txt.tmLanguage.json');
-
+console.log(TextHeighlightService.rules);
 try {
     // Write the syntax heighlighting data to a JSON file
     fs.writeFileSync(outputPath, JSON.stringify(TextHeighlightService.tmLanguageData, null, 2));

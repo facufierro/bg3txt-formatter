@@ -2,7 +2,28 @@
     "editor.tokenColorCustomizations": {
         "textMateRules": [
             {
-                "settings": {}
+                "scope": "keywords.bg3txt",
+                "settings": {
+                    "foreground": "#FF0000"
+                }
+            },
+            {
+                "scope": "statements.bg3txt",
+                "settings": {
+                    "foreground": "#FF0000"
+                }
+            },
+            {
+                "scope": "comment.bg3txt",
+                "settings": {
+                    "foreground": "#FF0000"
+                }
+            },
+            {
+                "scope": "operators.bg3txt",
+                "settings": {
+                    "foreground": "#FF0000"
+                }
             }
         ]
     },
