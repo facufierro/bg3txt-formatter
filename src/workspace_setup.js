@@ -1,61 +1,58 @@
 const vscode = require('vscode');
-const {
-    keywords,
-    statements,
-    comment_line,
-    operators
-} = require('./tmLanguage');  // Assuming both files are in the same directory
 
-// Now you can use these variables here
+// Function to set up workspace configuration for BG3 Modding
+async function setupWorkspace(patterns) {
+    try {
+        // Show information message asking for user confirmation to optimize settings
+        const userChoice = await vscode.window.showInformationMessage('Would you like to optimize your workspace settings BG3 Modding?', 'Yes', 'No');
 
-async function setupWorkspace() {
-    const userChoice = await vscode.window.showInformationMessage('Would you like to optimize your workspace settings BG3 Modding?', 'Yes', 'No');
-    if (userChoice === 'Yes') {
-        const config = vscode.workspace.getConfiguration();
+        // Proceed only if the user chooses 'Yes'
+        if (userChoice === 'Yes') {
+            // Get the existing workspace configuration
+            const config = vscode.workspace.getConfiguration();
 
-        // Check if existing settings are already in place
-        const existingTokenColorCustomizations = config.get('editor.tokenColorCustomizations') || {};
-        const existingTextMateRules = existingTokenColorCustomizations.textMateRules || [];
-        const existingFilesAssociations = config.get('files.associations') || {};
+            // Retrieve existing settings for tokenColorCustomizations and files.associations
+            const existingTokenColorCustomizations = config.get('editor.tokenColorCustomizations') || {};
+            const existingTextMateRules = existingTokenColorCustomizations.textMateRules || [];
+            const existingFilesAssociations = config.get('files.associations') || {};
 
-        // Set up additional textMateRules
-        const newRules = [
-            {
-                "scope": "keyword.control.bg3txt",
-                "settings": {
-                    "foreground": "#C586C0"
-                }
-            },
-            {
-                "scope": "keyword.operator.bg3txt",
-                "settings": {
-                    "foreground": "#ffa200"
-                }
-            },
-            {
-                "scope": "string.first-column.bg3txt",
-                "settings": {
-                    "foreground": "#9CDCFE"
-                }
+            // Initialize new textMateRules array
+            const newRules = [];
+
+            // Loop over patterns to set new rules
+            for (const pattern of patterns) {
+                newRules.push({
+                    "scope": pattern.name,
+                    "settings": {
+                        "foreground": pattern.color
+                    }
+                });
             }
-        ];
 
-        newRules.forEach((newRule) => {
-            if (!existingTextMateRules.some(rule => rule.scope === newRule.scope)) {
-                existingTextMateRules.push(newRule);
-            }
-        });
+            // Add new rules to existing rules if they don't already exist
+            newRules.forEach((newRule) => {
+                if (!existingTextMateRules.some(rule => rule.scope === newRule.scope)) {
+                    existingTextMateRules.push(newRule);
+                }
+            });
 
-        await config.update('editor.tokenColorCustomizations', {
-            "textMateRules": existingTextMateRules
-        }, vscode.ConfigurationTarget.Workspace);
+            // Update tokenColorCustomizations
+            await config.update('editor.tokenColorCustomizations', {
+                "textMateRules": existingTextMateRules
+            }, vscode.ConfigurationTarget.Workspace);
 
-        // Always use bg3txt for txt files
-        existingFilesAssociations['*.txt'] = "bg3txt";
-        await config.update('files.associations', existingFilesAssociations, vscode.ConfigurationTarget.Workspace);
+            // Update files.associations for txt files to use bg3txt
+            existingFilesAssociations['*.txt'] = "bg3txt";
+            await config.update('files.associations', existingFilesAssociations, vscode.ConfigurationTarget.Workspace);
+        }
+    } catch (error) {
+        // Log error message if any exceptions occur
+        console.error(`An error occurred while setting up the workspace: ${error.message}`);
+        vscode.window.showErrorMessage(`Failed to set up workspace: ${error.message}`);
     }
 }
 
+// Export setupWorkspace function
 module.exports = {
     setupWorkspace,
 };

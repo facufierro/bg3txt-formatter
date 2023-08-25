@@ -3,28 +3,20 @@
   "name": "bg3txt",
   "patterns": [
     {
-      "name": "all.bg3txt",
-      "match": ".*"
+      "name": "keywords.bg3txt",
+      "match": "new entry|type|data|using"
     },
     {
-      "name": "keyword.bg3txt",
-      "match": "\\b(new entry|type|data|using)\\b"
+      "name": "statements.bg3txt",
+      "match": "IF|not|\\:"
     },
     {
-      "name": "statement.bg3txt",
-      "match": "\\b(IF|not|\\:)\\b"
+      "name": "comment.bg3txt",
+      "match": "//"
     },
     {
-      "name": "first-column.bg3txt",
-      "match": "(?<=\\b(new entry|type|data|using)\\s)\"[^\"]+\""
-    },
-    {
-      "match": "(\\+|\\-|\\*|\\/|\\%|\\=|\\>|\\<|\\!|\\&|\\||\\^|\\~|\\?|\\'|\\,|\\;|\\\")",
-      "name": "operator.bg3txt"
-    },
-    {
-      "match": "^(\\s)*//.* $",
-      "name": "comment.bg3txt"
+      "name": "operators.bg3txt",
+      "match": "\\+|\\-|\\*|\\/|\\%|\\=|\\>|\\<|\\!|\\&|\\||\\^|\\~|\\?|\\'|\\,|\\;|\\\""
     }
   ],
   "scopeName": "source.bg3txt"
