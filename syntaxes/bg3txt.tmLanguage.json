@@ -1,10 +1,11 @@
 {
+  
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "name": "bg3txt",
   "patterns": [
     {
       "name": "keyword.control.bg3txt",
-      "match": "\\b(new entry|data|type|IF)\\b"
+      "match": "\\b(new entry|data|type|using|IF)\\b"
     },
     {
       "match": "^(\\s)*//.*$",
@@ -12,7 +13,7 @@
     },
     {
       "name": "string.first-column.bg3txt",
-      "match": "(?<=\\b(new entry|type|data)\\s)\"[^\"]+\""
+      "match": "(?<=\\b(new entry|type|data|using)\\s)\"[^\"]+\""
     },
     {
       "match": "(\\+|\\-|\\*|\\/|\\%|\\=|\\>|\\<|\\!|\\&|\\||\\^|\\~|\\?|\\'|\\:|\\,|\\;|\\\")",

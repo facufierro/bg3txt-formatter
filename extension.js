@@ -12,7 +12,7 @@ function activate(context) {
 
                 if (lineText.startsWith('new entry')) {
                     edits.push(vscode.TextEdit.replace(line.range, lineText));
-                } else if (lineText.startsWith('type')) {
+                } else if (lineText.startsWith('type') || lineText.startsWith('using')) {
                     edits.push(vscode.TextEdit.replace(line.range, '\t' + lineText));
                 } else if (lineText.startsWith('data')) {
                     edits.push(vscode.TextEdit.replace(line.range, '\t\t' + lineText));
