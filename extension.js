@@ -1,13 +1,15 @@
 const vscode = require('vscode');
+// Import and initialize the TextHeighlightService
+const TextHeighlightService = require('./src/TextHeighlightService');
+TextHeighlightService.initialize();
+
 // Import the setupWorkspace function from the workspace_setup module
 const { setupWorkspace } = require('./src/workspace_setup');
 
 // Import the provideDocumentFormattingEdits function from the document_formatter module
 const { provideDocumentFormattingEdits } = require('./src/document_formatter');
 
-// Import and initialize the TextHeighlightService
-const TextHeighlightService = require('./src/textHeighlightService');
-TextHeighlightService.initialize();
+
 
 // The activate function is the entry point for the extension
 function activate(context) {
@@ -19,8 +21,12 @@ function activate(context) {
             },
         }));
 
-        // Initialize workspace with color and text highlights from TextHeighlightService
-        setupWorkspace(TextHeighlightService.patterns);
+        // Initialize workspace with color and text heighlights from TextHeighlightService
+    
+
+        setupWorkspace(TextHeighlightService.rules);
+
+
 
     } catch (error) {
         // Log and show any errors that occur during the activation process

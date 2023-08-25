@@ -1,12 +1,12 @@
 VSCode Extension: bg3txt-formatter
 
 Description
-bg3txt-formatter is a Visual Studio Code extension designed to streamline the editing and management of .txt files in the BG3TXT language. This extension enhances your workflow by providing syntax highlighting, automatic formatting, and customization options specific to BG3TXT. 
+bg3txt-formatter is a Visual Studio Code extension designed to streamline the editing and management of .txt files in the BG3TXT language. This extension enhances your workflow by providing syntax heighlighting, automatic formatting, and customization options specific to BG3TXT. 
 
 Features
 
-Syntax Highlighting
-Experience contextual syntax highlighting for BG3TXT, improving readability and reducing errors.
+Syntax Heighlighting
+Experience contextual syntax heighlighting for BG3TXT, improving readability and reducing errors.
 
 Auto Formatting
 Formats BG3TXT files on save or by manual trigger, aligning the code in a more readable and standardized layout.

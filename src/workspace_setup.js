@@ -1,7 +1,6 @@
 const vscode = require('vscode');
-
 // Function to set up workspace configuration for BG3 Modding
-async function setupWorkspace(patterns) {
+async function setupWorkspace(rules) {
     try {
         // Show information message asking for user confirmation to optimize settings
         const userChoice = await vscode.window.showInformationMessage('Would you like to optimize your workspace settings BG3 Modding?', 'Yes', 'No');
@@ -17,14 +16,14 @@ async function setupWorkspace(patterns) {
             const existingFilesAssociations = config.get('files.associations') || {};
 
             // Initialize new textMateRules array
-            const newRules = [];
+            let newRules = [];
 
             // Loop over patterns to set new rules
-            for (const pattern of patterns) {
+            for (const rule of rules) {
                 newRules.push({
-                    "scope": pattern.name,
+                    "scope": rule.name,
                     "settings": {
-                        "foreground": pattern.color
+                        "foreground": rule.color
                     }
                 });
             }
@@ -37,9 +36,12 @@ async function setupWorkspace(patterns) {
             });
 
             // Update tokenColorCustomizations
+            console.log("Existing TextMate Rules before update:", existingTextMateRules);
+
             await config.update('editor.tokenColorCustomizations', {
                 "textMateRules": existingTextMateRules
             }, vscode.ConfigurationTarget.Workspace);
+            console.log("Existing TextMate Rules after update:", existingTextMateRules);
 
             // Update files.associations for txt files to use bg3txt
             existingFilesAssociations['*.txt'] = "bg3txt";

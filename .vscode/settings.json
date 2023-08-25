@@ -2,19 +2,6 @@
     "editor.tokenColorCustomizations": {
         "textMateRules": [
             {
-                "scope": "keywords.bg3txt",
-                "settings": {}
-            },
-            {
-                "scope": "statements.bg3txt",
-                "settings": {}
-            },
-            {
-                "scope": "comment.bg3txt",
-                "settings": {}
-            },
-            {
-                "scope": "operators.bg3txt",
                 "settings": {}
             }
         ]

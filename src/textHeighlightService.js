@@ -36,7 +36,8 @@ class TextHeighlightService {
                     });
                 }
             }
-
+            // Add a log here to debug
+            // console.log("Updated TextMate Rules: ", this.rules);
             // Populate the tmLanguageData object
             this.tmLanguageData = {
                 "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
