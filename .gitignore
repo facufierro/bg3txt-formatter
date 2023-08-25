@@ -1,7 +1,26 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
+﻿# Ignore node modules
+node_modules/
 
-/.vs
-*.zip
+# Ignore build artifacts
+out/
+dist/
 *.vsix
+
+# Ignore temporary files
+*.tmp
+*.swp
+*.bak
+.DS_Store
+*.sublime*
+
+# Ignore config files
+.env
+.env.local
+
+# Ignore debug logs
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Ignore VS Code settings
+.vscode/

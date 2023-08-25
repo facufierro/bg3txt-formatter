@@ -1,23 +1,30 @@
 {
-  
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "name": "bg3txt",
   "patterns": [
     {
-      "name": "keyword.control.bg3txt",
-      "match": "\\b(new entry|data|type|using|IF)\\b"
+      "name": "all.bg3txt",
+      "match": ".*"
     },
     {
-      "match": "^(\\s)*//.*$",
-      "name": "comment.line.bg3txt"
+      "name": "keyword.bg3txt",
+      "match": "\\b(new entry|type|data|using)\\b"
     },
     {
-      "name": "string.first-column.bg3txt",
+      "name": "statement.bg3txt",
+      "match": "\\b(IF|not|\\:)\\b"
+    },
+    {
+      "name": "first-column.bg3txt",
       "match": "(?<=\\b(new entry|type|data|using)\\s)\"[^\"]+\""
     },
     {
-      "match": "(\\+|\\-|\\*|\\/|\\%|\\=|\\>|\\<|\\!|\\&|\\||\\^|\\~|\\?|\\'|\\:|\\,|\\;|\\\")",
-      "name": "keyword.operator.bg3txt"
+      "match": "(\\+|\\-|\\*|\\/|\\%|\\=|\\>|\\<|\\!|\\&|\\||\\^|\\~|\\?|\\'|\\,|\\;|\\\")",
+      "name": "operator.bg3txt"
+    },
+    {
+      "match": "^(\\s)*//.* $",
+      "name": "comment.bg3txt"
     }
   ],
   "scopeName": "source.bg3txt"

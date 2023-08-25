@@ -4,7 +4,7 @@
   "publisher": "fierrof",
   "displayName": "bg3txt-formatter",
   "description": "Syntax highlighting and format for Baldur's Gate 3 text files",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/facufierro/bg3txt-formatter"
@@ -52,5 +52,12 @@
     "publisherDisplayName": "fierrof",
     "publisherId": "44de7cf2-4d12-4357-a02c-02a31efdd790",
     "isPreReleaseVersion": false
+  },
+  "scripts": {
+    "build": "node build.js",
+    "prePublish": "npm run build"
+  },
+  "devDependencies": {
+    "vsce": "^2.15.0"
   }
 }
