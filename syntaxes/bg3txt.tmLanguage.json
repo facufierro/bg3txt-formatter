@@ -3,20 +3,8 @@
   "name": "bg3txt",
   "patterns": [
     {
-      "name": "keywords.bg3txt",
-      "match": "new entry|type|data|using"
-    },
-    {
-      "name": "statements.bg3txt",
-      "match": "IF|not|\\:"
-    },
-    {
-      "name": "comment.bg3txt",
-      "match": "//"
-    },
-    {
-      "name": "operators.bg3txt",
-      "match": "\\+|\\-|\\*|\\/|\\%|\\=|\\>|\\<|\\!|\\&|\\||\\^|\\~|\\?|\\'|\\,|\\;|\\\""
+      "name": "entry_name.bg3txt",
+      "match": "^\\s*new\\s+entry\\s+\"([^\"]+)\""
     }
   ],
   "scopeName": "source.bg3txt"

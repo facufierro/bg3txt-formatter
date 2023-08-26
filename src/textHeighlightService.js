@@ -14,13 +14,25 @@ class TextHeighlightService {
 
             // Define properties for different text patterns and their corresponding rules
             const properties = {
-                keywords: { "name": "keywords.bg3txt", "match": "new entry|type|data|using", "color": "#FF0000" },
-                statements: { "name": "statements.bg3txt", "match": "IF|not|\\:", "color": "#FF0000" },
-                comment_line: { "name": "comment.bg3txt", "match": "//", "color": "#FF0000" },
-                operators: { "name": "operators.bg3txt", "match": "\\+|\\-|\\*|\\/|\\%|\\=|\\>|\\<|\\!|\\&|\\||\\^|\\~|\\?|\\'|\\,|\\;|\\\"", "color": "#FF0000" }
+                // key_word: { "name": "keywords.bg3txt", "color": "#C792EA", "match": "\\b(new entry|data|using|type)\\b" },
+                // comment: { "name": "comment.bg3txt", "color": "#6A9955", "match": "^(\\s*\\/\\/.*$)" },
+                entry_name: { "name": "entry_name.bg3txt", "color": "#ff0000", "match": "^\\s*new\\s+entry\\s+\"([^\"]+)\"" },
+
+                // entry_type: { "name": "entry_type.bg3txt", "color": "#ff0000", "match": "(?<=\\btype\\s+\")([^\"]+)" },
+                // variable: { "name": "variable.bg3txt", "color": "#ff0000", "match": "(?<=\\bdata\\s+\")([^\"]+)" },
+                // value: { "name": "value.bg3txt", "color": "#ff0000", "match": "(?<=\\bvariable\\s+\")[^\"]+" }
             };
 
+
+            //             instead there will be:
+            // key_word :  a list of perfectly matched words
+            // comment: for comments
+            // entry_name : the only word surrounded by quotes in the first line of a paragraph or the word surrounded by quotes after the key_word using
+            // entry_type : the word after the key_word type that is surrounded by quotes
+            // variable: the first word surrounded by quotes after the key_word data
+            // value: the next encastd string after a variable (this can be multiple words) 
             // Loop through each property and populate the patterns and rules arrays
+
             for (const key in properties) {
                 if (Object.prototype.hasOwnProperty.call(properties, key)) {
                     this.patterns.push({
