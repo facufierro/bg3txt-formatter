@@ -4,7 +4,19 @@
   "patterns": [
     {
       "name": "entry_name.bg3txt",
-      "match": "^\\s*new\\s+entry\\s+\"([^\"]+)\""
+      "match": "\\b(new entry|data|type|using|IF|and|or)\\b"
+    },
+    {
+      "name": "comment.bg3txt",
+      "match": "^(\\s)*//.*$"
+    },
+    {
+      "name": "keywords.bg3txt",
+      "match": "(?<=\\b(new entry|type|data|using)\\s)\"[^\"]+\""
+    },
+    {
+      "name": "entry_type.bg3txt",
+      "match": "(\\+|\\-|\\*|\\/|\\%|\\=|\\>|\\<|\\!|\\&|\\||\\^|\\~|\\?|\\'|\\:|\\,|\\;|\\\")"
     }
   ],
   "scopeName": "source.bg3txt"

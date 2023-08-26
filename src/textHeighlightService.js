@@ -14,13 +14,11 @@ class TextHeighlightService {
 
             // Define properties for different text patterns and their corresponding rules
             const properties = {
-                // key_word: { "name": "keywords.bg3txt", "color": "#C792EA", "match": "\\b(new entry|data|using|type)\\b" },
-                // comment: { "name": "comment.bg3txt", "color": "#6A9955", "match": "^(\\s*\\/\\/.*$)" },
-                entry_name: { "name": "entry_name.bg3txt", "color": "#ff0000", "match": "^\\s*new\\s+entry\\s+\"([^\"]+)\"" },
 
-                // entry_type: { "name": "entry_type.bg3txt", "color": "#ff0000", "match": "(?<=\\btype\\s+\")([^\"]+)" },
-                // variable: { "name": "variable.bg3txt", "color": "#ff0000", "match": "(?<=\\bdata\\s+\")([^\"]+)" },
-                // value: { "name": "value.bg3txt", "color": "#ff0000", "match": "(?<=\\bvariable\\s+\")[^\"]+" }
+                key_word: { "name": "entry_name.bg3txt", "color": "#C586C0", "match": "\\b(new entry|data|type|using|IF|and|or)\\b" },
+                comment: { "name": "comment.bg3txt", "color": "#6A9955", "match": "^(\\s)*//.*$" },
+                first_column: { "name": "keywords.bg3txt", "color": "#9CDCFE", "match": "(?<=\\b(new entry|type|data|using)\\s)\"[^\"]+\"" },
+                operator: { "name": "entry_type.bg3txt", "color": "#ffa200", "match": "(\\+|\\-|\\*|\\/|\\%|\\=|\\>|\\<|\\!|\\&|\\||\\^|\\~|\\?|\\'|\\:|\\,|\\;|\\\")" },
             };
 
 

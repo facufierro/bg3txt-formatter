@@ -4,25 +4,25 @@
             {
                 "scope": "entry_name.bg3txt",
                 "settings": {
-                    "foreground": "#ff0000"
-                }
-            },
-            {
-                "scope": "keyword.control.bg3txt",
-                "settings": {
                     "foreground": "#C586C0"
                 }
             },
             {
-                "scope": "keyword.operator.bg3txt",
+                "scope": "comment.bg3txt",
                 "settings": {
-                    "foreground": "#ffa200"
+                    "foreground": "#6A9955"
                 }
             },
             {
-                "scope": "string.first-column.bg3txt",
+                "scope": "keywords.bg3txt",
                 "settings": {
                     "foreground": "#9CDCFE"
+                }
+            },
+            {
+                "scope": "entry_type.bg3txt",
+                "settings": {
+                    "foreground": "#ffa200"
                 }
             }
         ]
